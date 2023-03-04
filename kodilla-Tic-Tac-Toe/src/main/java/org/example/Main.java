@@ -1,10 +1,11 @@
 package org.example;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.printf(
-                "| | | |" + '\n' +
-                "| | | |" + '\n' +
-                "| | | |" + '\n');
+        Board board = new Board();
+        ShowBoard showBoard = new ShowBoard();
+        showBoard.showBoard();
     }
 }
