@@ -1,7 +1,7 @@
 package org.example;
 
 public class WinLoseDraw_Check {
-    public boolean WinLoseDraw_Check(char[][] board,boolean game) {
+    public boolean WinLoseDraw_Check(char[][] board,Boolean game) {
         if(board[0][0] == board[0][1] && board[0][2] == board[0][0]) {
             System.out.printf("Wygrałeś");
             game = false;
