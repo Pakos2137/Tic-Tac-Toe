@@ -3,29 +3,33 @@ package org.example;
 import java.util.Scanner;
 
 public class MoveProcessor {
-    private boolean x = true;
+    WinLoseDraw_Check wns;
+    Board board;
+    private char move = 'x';
     private char chose;
-    private String move;
+    private String takeMove;
+
     public MoveProcessor(Board board) {
     }
+
     public void move() {
-        Scanner takeMove = new Scanner(System.in);
-        if(x == true) {
+        Scanner takeChoose = new Scanner(System.in);
+        if (move == 'x') {
             System.out.println("X: Wybierz Pole");
             chose = 'x';
-            x = false;
         } else {
             System.out.println("O: Wybierz Pole");
             chose = 'o';
-            x = true;
         }
-        move = takeMove.nextLine();
+        takeMove = takeChoose.nextLine();
     }
+
     public void moveCheck(char[][] board) {
-        switch (move) {
+        switch (takeMove) {
             case "1" -> {
                 if (board[0][0] != 'x' && board[0][0] != 'o') {
                     board[0][0] = chose;
+                    goodMove();
                 } else {
                     wrongMove();
                 }
@@ -33,6 +37,7 @@ public class MoveProcessor {
             case "2" -> {
                 if (board[0][1] != 'x' && board[0][1] != 'o') {
                     board[0][1] = chose;
+                    goodMove();
                 } else {
                     wrongMove();
                 }
@@ -40,6 +45,7 @@ public class MoveProcessor {
             case "3" -> {
                 if (board[0][2] != 'x' && board[0][2] != 'o') {
                     board[0][2] = chose;
+                    goodMove();
                 } else {
                     wrongMove();
                 }
@@ -47,6 +53,7 @@ public class MoveProcessor {
             case "4" -> {
                 if (board[1][0] != 'x' && board[1][0] != 'o') {
                     board[1][0] = chose;
+                    goodMove();
                 } else {
                     wrongMove();
                 }
@@ -54,6 +61,7 @@ public class MoveProcessor {
             case "5" -> {
                 if (board[1][1] != 'x' && board[1][1] != 'o') {
                     board[1][1] = chose;
+                    goodMove();
                 } else {
                     wrongMove();
                 }
@@ -61,6 +69,7 @@ public class MoveProcessor {
             case "6" -> {
                 if (board[1][2] != 'x' && board[1][2] != 'o') {
                     board[1][2] = chose;
+                    goodMove();
                 } else {
                     wrongMove();
                 }
@@ -68,6 +77,7 @@ public class MoveProcessor {
             case "7" -> {
                 if (board[2][0] != 'x' && board[2][0] != 'o') {
                     board[2][0] = chose;
+                    goodMove();
                 } else {
                     wrongMove();
                 }
@@ -75,6 +85,7 @@ public class MoveProcessor {
             case "8" -> {
                 if (board[2][1] != 'x' && board[2][1] != 'o') {
                     board[2][1] = chose;
+                    goodMove();
                 } else {
                     wrongMove();
                 }
@@ -82,6 +93,7 @@ public class MoveProcessor {
             case "9" -> {
                 if (board[2][2] != 'x' && board[2][2] != 'o') {
                     board[2][2] = chose;
+                    goodMove();
                 } else {
                     wrongMove();
                 }
@@ -89,12 +101,19 @@ public class MoveProcessor {
             default -> System.out.println("Wybrano niepoporawną wartość");
         }
     }
-    public void wrongMove() {
-        System.out.println("Wybierz inne pole");
-        if(x == true) {
-            x=false;
-        } else {
-            x=true;
+    public void goodMove() {
+        if (chose == 'o') {
+            move = 'x';
+        }
+        if (chose == 'x') {
+            move = 'o';
         }
     }
+    public void wrongMove() {
+        System.out.println("Wybierz inne pole");
+    }
+    public char getMove() {
+        return move;
+    }
+
 }
