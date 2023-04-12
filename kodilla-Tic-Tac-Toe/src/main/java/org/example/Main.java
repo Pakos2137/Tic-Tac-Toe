@@ -3,8 +3,14 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         Boolean gameInProgress = true;
+        boolean playWithComputer = false;
+        int boardSize = 0;
 
         Board board = new Board();
+
+        FirstMenu firstMenu = new FirstMenu(board, playWithComputer, boardSize);
+        firstMenu.choseMenu();
+
         board.setBoard3x3();
 
         MoveProcessor moveProcessor = new MoveProcessor(board);

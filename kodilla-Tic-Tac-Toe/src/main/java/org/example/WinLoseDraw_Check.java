@@ -1,4 +1,7 @@
 package org.example;
+
+import java.util.*;
+
 public class WinLoseDraw_Check {
     MoveProcessor moveProcessor;
     Board board;
@@ -8,6 +11,9 @@ public class WinLoseDraw_Check {
 
     public void WinLoseDraw_Check(char[][] board) {
         rounds++;
+
+        List<Object> topRow = new ArrayList<>();
+        Collections.addAll(topRow,board[0][0],board[0][1],board[0][2]);
 
         if (board[0][0] == board[0][1] && board[0][2] == board[0][0]) {
             endGame = true;
