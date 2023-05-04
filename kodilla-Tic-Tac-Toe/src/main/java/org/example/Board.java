@@ -3,10 +3,10 @@ package org.example;
 public class Board{
     char[][] board;
     public void setBoard3x3() {
-        board = new char[][]
-                {{'1', '2', '3'},
-                {'4', '5', '6'},
-                {'7', '8', '9'}};
+        board = new char[][] {
+                        {'1', '2', '3'},
+                        {'4', '5', '6'},
+                        {'7', '8', '9'}};
     }
     public void setBoard10x10() {
         for (int i = 0; i < 11; i++) {

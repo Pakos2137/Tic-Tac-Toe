@@ -2,30 +2,7 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        Boolean gameInProgress = true;
-        boolean playWithComputer = false;
-        int boardSize = 0;
-
-        Board board = new Board();
-
-        FirstMenu firstMenu = new FirstMenu(board, playWithComputer, boardSize);
-        firstMenu.choseMenu();
-
-        board.setBoard3x3();
-
-        MoveProcessor moveProcessor = new MoveProcessor(board);
-        WinLoseDraw_Check wns = new WinLoseDraw_Check();
-
-        System.out.println("X zaczyna");
-
-        while(gameInProgress) {
-            board.showBoard();
-            moveProcessor.move();
-            moveProcessor.moveCheck(board.board);
-            wns.WinLoseDraw_Check(board.board);
-            gameInProgress = wns.WinLoseDraw_Exe(gameInProgress);
-        }
-        board.showBoard();
-        wns.whoWin(moveProcessor);
+        SettingsMenu settingMenu = new SettingsMenu();
+        settingMenu.appProcess();
     }
 }
