@@ -1,26 +1,56 @@
 package org.example;
 
 public class Board{
-    char[][] board;
+    private int number = 0;
+    String[][] board;
     public void setBoard3x3() {
-        board = new char[][] {
-                        {'1', '2', '3'},
-                        {'4', '5', '6'},
-                        {'7', '8', '9'}};
+        for (int i = 0; i < 4; i++) {
+            board = new String[i][0];
+            for (int k = 0; k < 4; k++) {
+                board = new String[i][k];
+            }
+        }
+        for(int i=0; i<3; i++) {
+            number ++;
+            board[i][0] = String.valueOf(number);
+            for (int k = 0; k < 3; k++) {
+                board[i][k] = String.valueOf(number);
+                number++;
+            }
+            number--;
+        }
     }
     public void setBoard10x10() {
         for (int i = 0; i < 11; i++) {
-            board = new char[i][0];
+            board = new String[i][0];
             for (int k = 0; k < 11; k++) {
-                board = new char[i][k];
+                board = new String[i][k];
             }
+        }
+        number = -1;
+        for(int i=0; i<10; i++) {
+            number ++;
+            board[i][0] = String.valueOf(number);
+            for (int k = 0; k < 10; k++) {
+                board[i][k] = String.valueOf(number);
+                number++;
+            }
+            number--;
         }
     }
     public void showBoard() {
         for (int row = 0; row < this.board.length; row++) {
-            System.out.print("|");
+            if(row == 0 && board.length > 3) {
+                System.out.print("| ");
+            } else {
+                System.out.print("|");
+            }
             for (int column = 0; column < this.board[row].length; column++) {
-                System.out.print(this.board[row][column] + "|");
+               if(row != 0 ^ board.length > 3) {
+                   System.out.print(this.board[row][column] + "|");
+               } else {
+                   System.out.print(this.board[row][column] + "| ");
+               }
             }
             System.out.println("");
         }

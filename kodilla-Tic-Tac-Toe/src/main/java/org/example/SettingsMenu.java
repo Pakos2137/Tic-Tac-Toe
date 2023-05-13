@@ -3,9 +3,11 @@ package org.example;
 import java.util.Scanner;
 
 public class SettingsMenu {
-    boolean playWithComputer;
+    GameModeChoose gameProcessor;
+    private boolean playWithComputer;
     private int boardValue;
     Board board = new Board();
+
     public void appProcess() {
         System.out.println("Witaj W Grze Kamień,Papier,Nożyce" + '\n');
         setWhoPlay();
@@ -32,6 +34,7 @@ public class SettingsMenu {
                 setWhoPlay();
         }
     }
+
     public void setBoardSize() {
         System.out.println("Wybierz wielkość planszy 3 lub 10.");
         Scanner boardSizeScan = new Scanner(System.in);
@@ -54,4 +57,17 @@ public class SettingsMenu {
                 setBoardSize();
         }
     }
+
+    public int getBoardValue() {
+        return boardValue;
+    }
+
+    public void setPlayWithComputer(boolean playWithComputer) {
+        this.playWithComputer = playWithComputer;
+    }
+
+    public boolean getPlayWithComputer() {
+        return playWithComputer;
+    }
+
 }
