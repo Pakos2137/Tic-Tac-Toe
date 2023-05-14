@@ -39,20 +39,31 @@ public class Board{
         }
     }
     public void showBoard() {
-        for (int row = 0; row < this.board.length; row++) {
-            if(row == 0 && board.length > 3) {
-                System.out.print("| ");
-            } else {
-                System.out.print("|");
+        switch (board.length) {
+            case 3: {
+                for (int row = 0; row < this.board.length; row++) {
+                    System.out.print("|");
+                    for (int column = 0; column < this.board[row].length; column++) {
+                        System.out.print(this.board[row][column] + "|");
+                    }
+                    System.out.println("");
+                }
+                break;
             }
-            for (int column = 0; column < this.board[row].length; column++) {
-               if(row != 0 ^ board.length > 3) {
-                   System.out.print(this.board[row][column] + "|");
-               } else {
-                   System.out.print(this.board[row][column] + "| ");
-               }
+            case 10: {
+                for (int row = 0; row < this.board.length; row++) {
+                    System.out.print("|");
+                    for (int column = 0; column < this.board[row].length; column++) {
+                        if (row == 0) {
+                            System.out.print(this.board[row][column] + " |");
+                        } else {
+                            System.out.print(this.board[row][column] + "|");
+                        }
+                    }
+                    System.out.println("");
+                }
+                break;
             }
-            System.out.println("");
         }
     }
 }
