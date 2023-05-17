@@ -1,10 +1,12 @@
 package org.example;
 
-public class GameModeChoose {
+public class GameProcess{
     Board board;
     SettingsMenu settingsMenu;
 
-    public GameModeChoose(Board board) {
+    char actualMove = 'x';
+
+    public GameProcess(Board board) {
         this.board = board;
     }
 
@@ -32,6 +34,7 @@ public class GameModeChoose {
 
     private void gameProcessWithPlayer3x3() {
         board.showBoard();
+
     }
     private void gameProcessWithComputer3x3() {
         board.showBoard();

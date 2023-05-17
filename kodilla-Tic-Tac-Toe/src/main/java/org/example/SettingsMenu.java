@@ -3,7 +3,7 @@ package org.example;
 import java.util.Scanner;
 
 public class SettingsMenu {
-    GameModeChoose gameProcessor;
+    GameProcess gameProcessor;
     private boolean playWithComputer;
     private int boardValue;
     Board board = new Board();

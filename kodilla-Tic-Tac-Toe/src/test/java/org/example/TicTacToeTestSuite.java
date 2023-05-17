@@ -4,6 +4,8 @@ import org.example.Board;
 import org.example.SettingsMenu;
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TicTacToeTestSuite {
@@ -19,5 +21,13 @@ public class TicTacToeTestSuite {
     public void createBoard10x10test() {
         board.setBoard10x10();
         assertEquals(board.board.length, 10);
+    }
+    @Test
+    public void rng() {
+        while (true) {
+            Rng rng = new Rng();
+            int rngNumber = rng.random1To9(1,10);
+            System.out.println(rngNumber);
+        }
     }
 }
