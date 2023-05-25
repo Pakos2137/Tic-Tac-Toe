@@ -22,12 +22,4 @@ public class TicTacToeTestSuite {
         board.setBoard10x10();
         assertEquals(board.board.length, 10);
     }
-    @Test
-    public void rng() {
-        while (true) {
-            Rng rng = new Rng();
-            int rngNumber = rng.random1To9(1,10);
-            System.out.println(rngNumber);
-        }
-    }
 }
