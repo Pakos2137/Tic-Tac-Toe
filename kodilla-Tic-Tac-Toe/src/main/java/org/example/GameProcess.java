@@ -13,8 +13,7 @@ public class GameProcess {
         this.board = board;
     }
 
-    public void choseProcess(SettingsMenu settingsMenu) {
-
+    public void choseProcess(int boardValue) {
 
         switch (settingsMenu.getBoardValue()) {
             case 3:
@@ -43,6 +42,7 @@ public class GameProcess {
         while (gameInProgress) {
             board.showBoard();
             moveProcess.takeMove(actualMove);
+            moveProcess.boardEditor3x3();
             moveSwitch();
         }
     }

@@ -3,7 +3,6 @@ package org.example;
 import java.util.Scanner;
 
 public class SettingsMenu {
-    GameProcess gameProcessor;
     private boolean playWithComputer;
     private int boardValue;
     Board board = new Board();
@@ -12,6 +11,8 @@ public class SettingsMenu {
         System.out.println("Witaj W Grze Kamień,Papier,Nożyce" + '\n');
         setWhoPlay();
         setBoardSize();
+        GameProcess gameProcess = new GameProcess(board);
+        gameProcess.choseProcess(boardValue);
     }
     public void setWhoPlay() {
         System.out.println("Wybierz Grę z komputerem ( K ) lub z drugim graczem ( G ). ");
