@@ -12,13 +12,12 @@ public class SettingsMenu {
         setWhoPlay();
         setBoardSize();
         GameProcess gameProcess = new GameProcess(board);
-        gameProcess.choseProcess(boardValue);
+        gameProcess.choseProcess(gameProcess.board.board.length,getPlayWithComputer());
     }
     public void setWhoPlay() {
         System.out.println("Wybierz Grę z komputerem ( K ) lub z drugim graczem ( G ). ");
         Scanner whoPlayScan = new Scanner(System.in);
-        String whoPlay = whoPlayScan.nextLine();
-        whoPlay.toLowerCase();
+        String whoPlay = whoPlayScan.nextLine().toLowerCase();
         switch (whoPlay) {
             case "k": {
                 System.out.println("Wybrano grę z komputerem");
@@ -71,4 +70,7 @@ public class SettingsMenu {
         return playWithComputer;
     }
 
+    public Board getBoard() {
+        return board;
+    }
 }

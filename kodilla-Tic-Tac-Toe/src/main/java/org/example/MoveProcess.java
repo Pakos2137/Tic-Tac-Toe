@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class MoveProcess {
@@ -11,20 +12,39 @@ public class MoveProcess {
 
     Board board;
 
-    public void takeMove(char actualMove) {
-        if(this.board.board.length == 3) {
+
+    public MoveProcess(Board board) {
+        this.board = board;
+    }
+
+    public void takeMove() {
+        if (board.board.length == 3) {
             boardType = 9;
         } else {
             boardType = 100;
         }
 
-        if(move > boardType) {
+        if (move < boardType) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println(actualMove);
             move = scanner.nextInt();
             System.out.println(move);
         }
     }
-    public void boardEditor3x3() {
+
+    public void boardEditor3x3(char actualMove) {
+        int moveValue = move;
+        for (int i = 0; i < 3; i++) {
+            for (int k = 0; k < 3; k++) {
+                move--;
+                if (move == 0) {
+                    String boardValue = board.board[i][k];
+                    if (Objects.equals(String.valueOf(boardValue), String.valueOf(moveValue))) {
+                        board.board[i][k] = String.valueOf(actualMove);
+                    } else {
+                        System.out.println("To Pole zostało juz wybrane:");
+                    }
+                }
+            }
+        }
     }
 }

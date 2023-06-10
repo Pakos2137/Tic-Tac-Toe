@@ -4,20 +4,19 @@ public class GameProcess {
     Board board;
     SettingsMenu settingsMenu;
 
-    private char actualMove = 'x';
+    private char actualMove = 'X';
 
     private boolean gameInProgress = true;
-
 
     public GameProcess(Board board) {
         this.board = board;
     }
 
-    public void choseProcess(int boardValue) {
+    public void choseProcess(int boardSize,boolean player) {
 
-        switch (settingsMenu.getBoardValue()) {
+        switch (boardSize) {
             case 3:
-                if (settingsMenu.getPlayWithComputer() == true) {
+                if (player == true) {
                     gameProcessWithComputer3x3();
                     System.out.printf("Gracz X. Komputer O." + '\n' + "Zaczyna Gracz X:" + '\n');
                 } else {
@@ -26,7 +25,7 @@ public class GameProcess {
                 }
                 break;
             case 10:
-                if (settingsMenu.getPlayWithComputer() == true) {
+                if (player == true) {
                     gameProcessWithComputer10x10();
                     System.out.printf("błąd");
                 } else {
@@ -38,11 +37,12 @@ public class GameProcess {
     }
 
     private void gameProcessWithPlayer3x3() {
-        MoveProcess moveProcess = new MoveProcess();
+        MoveProcess moveProcess = new MoveProcess(board);
         while (gameInProgress) {
             board.showBoard();
-            moveProcess.takeMove(actualMove);
-            moveProcess.boardEditor3x3();
+            System.out.println("Ruch : " + actualMove);
+            moveProcess.takeMove();
+            moveProcess.boardEditor3x3(actualMove);
             moveSwitch();
         }
     }
@@ -58,21 +58,19 @@ public class GameProcess {
     private void gameProcessWithComputer10x10() {
         board.showBoard();
     }
-
-    private void moveSwitch() {
-        if (getActualMove() == 'x') {
-            setActualMove('o');
+    public char moveSwitch() {
+        if (getActualMove() == 'X') {
+            setActualMove('O');
+        } else {
+            setActualMove('X');
         }
-        if (getActualMove() == 'o') {
-            setActualMove('x');
-        }
+        return actualMove;
     }
-
     public char getActualMove() {
         return actualMove;
     }
-
     public void setActualMove(char actualMove) {
         this.actualMove = actualMove;
     }
+
 }
