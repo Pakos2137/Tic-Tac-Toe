@@ -14,6 +14,7 @@ public class GameProcess {
 
     public void choseProcess(int boardSize,boolean player) {
 
+
         switch (boardSize) {
             case 3:
                 if (player == true) {
@@ -37,26 +38,52 @@ public class GameProcess {
     }
 
     private void gameProcessWithPlayer3x3() {
+        WinCheck winCheck = new WinCheck(board);
         MoveProcess moveProcess = new MoveProcess(board);
         while (gameInProgress) {
-            board.showBoard();
-            System.out.println("Ruch : " + actualMove);
+            defaultAction();
             moveProcess.takeMove();
             moveProcess.boardEditor3x3(actualMove);
+            winCheck.gameResultCheck3x3();
             moveSwitch();
         }
     }
 
     private void gameProcessWithComputer3x3() {
-        board.showBoard();
+        WinCheck winCheck = new WinCheck(board);
+        MoveProcess moveProcess = new MoveProcess(board);
+        while (gameInProgress) {
+            defaultAction();
+            moveProcess.takeMove();
+            moveProcess.boardEditor3x3(actualMove);
+            winCheck.gameResultCheck3x3();
+            moveSwitch();
+        }
     }
 
-    private void gameProcessWithPlayer10x10() {
-        board.showBoard();
+    private void gameProcessWithPlayer10x10()
+    {
+        MoveProcess moveProcess = new MoveProcess(board);
+        while (gameInProgress) {
+            defaultAction();
+            moveProcess.takeMove();
+            //moveProcess.boardEditor10x10(actualMove);
+            moveSwitch();
+        }
     }
 
     private void gameProcessWithComputer10x10() {
+        MoveProcess moveProcess = new MoveProcess(board);
+        while (gameInProgress) {
+            defaultAction();
+            moveProcess.takeMove();
+            //moveProcess.boardEditor10x10(actualMove);
+            moveSwitch();
+        }
+    }
+    public void defaultAction() {
         board.showBoard();
+        System.out.println("Ruch : " + actualMove);
     }
     public char moveSwitch() {
         if (getActualMove() == 'X') {

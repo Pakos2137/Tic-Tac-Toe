@@ -47,4 +47,24 @@ public class MoveProcess {
             }
         }
     }
+    /*
+    public void boardEditor10x10(char actualMove) {
+        int moveValue = move;
+        for (int i = 0; i < 10; i++) {
+            for (int k = 1; k < 10; k++) {
+                move--;
+                if (move == 0) {
+                    String boardValue = board.board[i][k];
+                    System.out.println(moveValue);
+                    if (Objects.equals(String.valueOf(boardValue), String.valueOf(moveValue))) {
+                        board.board[i][k] = String.valueOf(actualMove);
+                    } else {
+                        System.out.println("To Pole zostało juz wybrane:");
+                    }
+                }
+            }
+        }
+    }
+
+     */
 }
