@@ -2,7 +2,6 @@ package org.example;
 
 public class GameProcess {
     Board board;
-    SettingsMenu settingsMenu;
 
     private char actualMove = 'X';
 
@@ -12,12 +11,12 @@ public class GameProcess {
         this.board = board;
     }
 
-    public void choseProcess(int boardSize,boolean player) {
+    public void choseProcess(int boardSize,boolean playWithComputer) {
 
 
         switch (boardSize) {
             case 3:
-                if (player == true) {
+                if (playWithComputer == true) {
                     gameProcessWithComputer3x3();
                     System.out.printf("Gracz X. Komputer O." + '\n' + "Zaczyna Gracz X:" + '\n');
                 } else {
@@ -26,7 +25,7 @@ public class GameProcess {
                 }
                 break;
             case 10:
-                if (player == true) {
+                if (playWithComputer == true) {
                     gameProcessWithComputer10x10();
                     System.out.printf("błąd");
                 } else {

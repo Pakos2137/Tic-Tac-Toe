@@ -1,9 +1,7 @@
 package org.example;
 
-import javax.management.StringValueExp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class WinCheck {
     Board board;
@@ -15,7 +13,9 @@ public class WinCheck {
     }
     public void gameResultCheck3x3() {
         boardToListsConverter();
+        winMessage();
     }
+
     private void boardToListsConverter() {
         List rowsList = new ArrayList<>();
         List columnList = new ArrayList<>();
@@ -25,7 +25,6 @@ public class WinCheck {
                 rowsList.add(board.board[i][k]);
                 result += board.board[i][k];
             }
-            winMessage();
             System.out.println("list rows : " + rowsList);
             rowsList.removeAll(rowsList);
             result = "";
@@ -33,7 +32,6 @@ public class WinCheck {
                 columnList.add(board.board[k][i]);
                 result += board.board[k][i];
             }
-            winMessage();
             System.out.println("list column : " + columnList);
             columnList.removeAll(columnList);
             result = "";

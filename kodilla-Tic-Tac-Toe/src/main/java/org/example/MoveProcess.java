@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.print.DocFlavor;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -31,7 +32,7 @@ public class MoveProcess {
         }
     }
 
-    public void boardEditor3x3(char actualMove) {
+    public char boardEditor3x3(char actualMove) {
         int moveValue = move;
         for (int i = 0; i < 3; i++) {
             for (int k = 0; k < 3; k++) {
@@ -46,6 +47,7 @@ public class MoveProcess {
                 }
             }
         }
+        return actualMove;
     }
     /*
     public void boardEditor10x10(char actualMove) {
